@@ -1,0 +1,176 @@
+<html><head>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B600%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<title>VisaPro Dashboard</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+      @layer utilities {
+        .status-badge {
+          @apply inline-flex items-center justify-center rounded-full px-3 py-1 text-xs font-semibold leading-none;
+        }
+        .status-approved {
+          @apply bg-green-100 text-green-700;
+        }
+        .status-pending {
+          @apply bg-yellow-100 text-yellow-700;
+        }
+        .status-rejected {
+          @apply bg-red-100 text-red-700;
+        }
+      }
+    </style>
+</head>
+<body class="bg-slate-50">
+<div class="relative flex size-full min-h-screen flex-col group/design-root" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+<div class="flex h-full grow flex-col">
+<div class="flex flex-1">
+<aside class="flex flex-col w-72 bg-white border-r border-slate-200 shadow-sm">
+<div class="p-6">
+<h1 class="text-blue-600 text-2xl font-bold leading-normal">VisaPro</h1>
+</div>
+<nav class="flex-grow px-4 space-y-2">
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-lg bg-blue-50 text-blue-600 group" href="#">
+<svg class="text-blue-600" fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M224,115.55V208a16,16,0,0,1-16,16H168a16,16,0,0,1-16-16V168a8,8,0,0,0-8-8H112a8,8,0,0,0-8,8v40a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V115.55a16,16,0,0,1,5.17-11.78l80-75.48.11-.11a16,16,0,0,1,21.53,0,1.14,1.14,0,0,0,.11.11l80,75.48A16,16,0,0,1,224,115.55Z"></path>
+</svg>
+<span class="text-sm font-semibold">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-lg hover:bg-slate-100 text-slate-700 group" href="#">
+<svg class="text-slate-500 group-hover:text-slate-700" fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path>
+</svg>
+<span class="text-sm font-medium">New Application</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-lg hover:bg-slate-100 text-slate-700 group" href="#">
+<svg class="text-slate-500 group-hover:text-slate-700" fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Z"></path>
+</svg>
+<span class="text-sm font-medium">My Applications</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-lg hover:bg-slate-100 text-slate-700 group" href="#">
+<svg class="text-slate-500 group-hover:text-slate-700" fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M216,72H131.31L104,44.69A15.86,15.86,0,0,0,92.69,40H40A16,16,0,0,0,24,56V200.62A15.4,15.4,0,0,0,39.38,216H216.89A15.13,15.13,0,0,0,232,200.89V88A16,16,0,0,0,216,72ZM40,56H92.69l16,16H40ZM216,200H40V88H216Z"></path>
+</svg>
+<span class="text-sm font-medium">Saved Documents</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-lg hover:bg-slate-100 text-slate-700 group" href="#">
+<svg class="text-slate-500 group-hover:text-slate-700" fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"></path>
+</svg>
+<span class="text-sm font-medium">Profile</span>
+</a>
+</nav>
+<div class="px-4 mt-auto py-6 space-y-4">
+<button class="flex w-full min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#0c7ff2] text-white text-sm font-semibold leading-normal tracking-[-0.015em] hover:bg-blue-700 transition-colors duration-150">
+<span class="truncate">Contact Support</span>
+</button>
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-lg hover:bg-slate-100 text-slate-700 group" href="#">
+<svg class="text-slate-500 group-hover:text-slate-700" fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M140,180a12,12,0,1,1-12-12A12,12,0,0,1,140,180ZM128,72c-22.06,0-40,16.15-40,36v4a8,8,0,0,0,16,0v-4c0-11,10.77-20,24-20s24,9,24,20-10.77,20-24,20a8,8,0,0,0-8,8v8a8,8,0,0,0,16,0v-.72c18.24-3.35,32-17.9,32-35.28C168,88.15,150.06,72,128,72Zm104,56A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path>
+</svg>
+<span class="text-sm font-medium">Help &amp; FAQ</span>
+</a>
+</div>
+</aside>
+<main class="flex-1 p-8 overflow-y-auto">
+<header class="mb-8">
+<h1 class="text-slate-800 text-3xl font-bold leading-tight">My Dashboard</h1>
+</header>
+<section class="mb-10 bg-white p-6 rounded-xl shadow-lg">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-slate-700 text-xl font-semibold leading-tight">Profile Overview</h2>
+<button class="text-sm font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1">
+                  Edit Profile
+                  <svg fill="currentColor" height="16" viewBox="0 0 256 256" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M227.31,73.37,182.63,28.68a16,16,0,0,0-22.63,0L36.69,152A15.86,15.86,0,0,0,32,163.31V208a16,16,0,0,0,16,16H92.69A15.86,15.86,0,0,0,104,219.31L227.31,96a16,16,0,0,0,0-22.63ZM192,108.68,147.31,64l16-16L208,92.68ZM48,179.31,76.69,152l40,40L88,208H48Z"></path></svg>
+</button>
+</div>
+<div class="flex items-center gap-6">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-24 w-24 border-2 border-blue-200 shadow-md" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCcmVz7TnGlUvbqEgloDkdS3ul9WBXFd0YDMKis2rLCTuhG7jn7OYwqdLR8z2mAnwLI5FQyu1Pi0P5HNBBa7hExueEiGPLqTHLhpF2jVgJDSgQU1C_XrkMAVJ7DSqVDQQSZ9-kJ2pvaRKkP7K7FVegxL2aK68_1UbLRZihoNy_9nhU5jgMfTZ9VPFGhoEkDqEPDBLgMzlL2c0uHcj1MyCzfog3W0A3MSnkYYU7SDl6Q3F5sHepe7alanDqLX8FdZpuTduOrndQr54uT");'></div>
+<div>
+<p class="text-slate-800 text-2xl font-bold leading-tight">Sophia Clark</p>
+<p class="text-green-600 text-sm font-medium leading-normal flex items-center gap-1">
+<svg fill="currentColor" height="16" viewBox="0 0 256 256" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                    Verified
+                  </p>
+</div>
+</div>
+<div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-slate-200">
+<div>
+<p class="text-slate-500 text-xs font-medium uppercase tracking-wider">Full Name</p>
+<p class="text-slate-700 text-base font-medium mt-1">Sophia Clark</p>
+</div>
+<div>
+<p class="text-slate-500 text-xs font-medium uppercase tracking-wider">Email Address</p>
+<p class="text-slate-700 text-base font-medium mt-1">sophia.clark@email.com</p>
+</div>
+<div>
+<p class="text-slate-500 text-xs font-medium uppercase tracking-wider">Phone Number</p>
+<p class="text-slate-700 text-base font-medium mt-1">+1 (555) 123-4567</p>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-slate-200">
+<button class="text-sm font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1">
+                    Change Password
+                    <svg fill="currentColor" height="16" viewBox="0 0 256 256" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M200,88V72a72,72,0,0,0-144,0V88a16,16,0,0,0-16,16v96a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V104A16,16,0,0,0,200,88ZM72,72a56,56,0,0,1,112,0V88H72Zm128,128H56V104H200Z"></path></svg>
+</button>
+</div>
+</section>
+<section class="mb-10 bg-white p-6 rounded-xl shadow-lg">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-slate-700 text-xl font-semibold leading-tight">Application History</h2>
+<a class="text-sm font-medium text-blue-600 hover:text-blue-700" href="#">View All Applications</a>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full min-w-[600px]">
+<thead>
+<tr class="border-b border-slate-200">
+<th class="px-4 py-3 text-left text-slate-500 text-xs font-medium uppercase tracking-wider">Destination</th>
+<th class="px-4 py-3 text-left text-slate-500 text-xs font-medium uppercase tracking-wider">Visa Type</th>
+<th class="px-4 py-3 text-left text-slate-500 text-xs font-medium uppercase tracking-wider">Status</th>
+<th class="px-4 py-3 text-left text-slate-500 text-xs font-medium uppercase tracking-wider">Date Submitted</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors duration-150">
+<td class="px-4 py-3 text-slate-700 text-sm font-medium">France</td>
+<td class="px-4 py-3 text-slate-600 text-sm">Tourist Visa</td>
+<td class="px-4 py-3"><span class="status-badge status-approved">Approved</span></td>
+<td class="px-4 py-3 text-slate-600 text-sm">2023-08-15</td>
+</tr>
+<tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors duration-150">
+<td class="px-4 py-3 text-slate-700 text-sm font-medium">Canada</td>
+<td class="px-4 py-3 text-slate-600 text-sm">Student Visa</td>
+<td class="px-4 py-3"><span class="status-badge status-pending">Pending</span></td>
+<td class="px-4 py-3 text-slate-600 text-sm">2023-11-20</td>
+</tr>
+<tr class="hover:bg-slate-50 transition-colors duration-150">
+<td class="px-4 py-3 text-slate-700 text-sm font-medium">Germany</td>
+<td class="px-4 py-3 text-slate-600 text-sm">Work Visa</td>
+<td class="px-4 py-3"><span class="status-badge status-rejected">Rejected</span></td>
+<td class="px-4 py-3 text-slate-600 text-sm">2024-02-10</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="bg-white p-6 rounded-xl shadow-lg">
+<h2 class="text-slate-700 text-xl font-semibold leading-tight mb-6">Quick Actions</h2>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="flex-1 flex items-center justify-center gap-2 min-w-[84px] cursor-pointer rounded-lg h-12 px-4 bg-[#0c7ff2] text-white text-sm font-semibold leading-normal tracking-[-0.015em] hover:bg-blue-700 transition-colors duration-150">
+<svg fill="currentColor" height="20" viewBox="0 0 256 256" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path></svg>
+                  Start New Application
+                </button>
+<button class="flex-1 flex items-center justify-center gap-2 min-w-[84px] cursor-pointer rounded-lg h-12 px-4 bg-slate-100 text-slate-700 text-sm font-semibold leading-normal tracking-[-0.015em] hover:bg-slate-200 transition-colors duration-150">
+<svg fill="currentColor" height="20" viewBox="0 0 256 256" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M216,72H131.31L104,44.69A15.86,15.86,0,0,0,92.69,40H40A16,16,0,0,0,24,56V200.62A15.4,15.4,0,0,0,39.38,216H216.89A15.13,15.13,0,0,0,232,200.89V88A16,16,0,0,0,216,72ZM40,56H92.69l16,16H40ZM216,200H40V88H216Z"></path></svg>
+                  Manage Saved Documents
+                </button>
+</div>
+</section>
+</main>
+</div>
+</div>
+</div>
+
+</body></html>
